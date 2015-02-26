@@ -78,7 +78,8 @@ elseif(CMAKE_COMPILER_IS_GNUCC OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fvisibility=hidden")
 endif ()
 
-add_library(${LIBRARY} SHARED ${LIBRARY_SOURCES})
+add_library(${LIBRARY} STATIC ${LIBRARY_SOURCES})
+
 # Include minor version in soname as long as major version is 0.
 set_target_properties(${LIBRARY} PROPERTIES
   OUTPUT_NAME "cmark"
@@ -99,6 +100,7 @@ endif(MSVC)
 install(TARGETS ${PROGRAM} ${LIBRARY}
   RUNTIME DESTINATION bin
   LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
   )
 
 install(FILES
