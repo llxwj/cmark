@@ -219,9 +219,9 @@ S_render_node(cmark_node *node, cmark_event_type ev_type, void *vstate)
 
 	case CMARK_NODE_EMPH:
 		if (entering) {
-			cmark_strbuf_puts(html, "<em>");
+			cmark_strbuf_puts(html, "*");
 		} else {
-			cmark_strbuf_puts(html, "</em>");
+			cmark_strbuf_puts(html, "*");
 		}
 		break;
 
